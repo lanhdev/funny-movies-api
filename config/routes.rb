@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, only: []
+
+  devise_scope :users do
+    scope :auth, defaults: { format: :json } do
+      post   '/signin',       to: 'sessions#create'
+      delete '/signout',      to: 'sessions#destroy'
+    end
+  end
 end
