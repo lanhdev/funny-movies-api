@@ -6,8 +6,8 @@ def decoded_jwt_token_from_response(response)
 end
 
 RSpec.describe "Sessions", type: :request do
-  context 'POST /auth/sign_in' do
-    let(:url) { '/auth/sign_in' }
+  context 'POST /sign_in' do
+    let(:url) { '/sign_in' }
 
     context 'when user is new' do
       let(:params) do
@@ -101,8 +101,8 @@ RSpec.describe "Sessions", type: :request do
     end
   end
 
-  context 'DELETE /auth/sign_out' do
-    let(:url) { '/auth/sign_out' }
+  context 'DELETE /sign_out' do
+    let(:url) { '/sign_out' }
 
     it 'returns 204, no content' do
       delete url
