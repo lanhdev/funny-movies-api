@@ -101,7 +101,7 @@ RSpec.describe "Sessions", type: :request do
     end
   end
 
-  context 'DELETE /auth/signout' do
+  context 'DELETE /auth/sign_out' do
     let(:url) { '/auth/sign_out' }
 
     it 'returns 204, no content' do
