@@ -18,7 +18,7 @@ class SessionsController < Devise::SessionsController
   def sign_up_user
     user = User.new(user_params)
     if user.save
-      sign_in user, store: false
+      sign_in user
       render json: user, status: :created
     else
       render json: { errors: user.errors }, status: :unprocessable_entity
@@ -28,7 +28,7 @@ class SessionsController < Devise::SessionsController
   def sign_in_user
     user_password = params[:user][:password]
     if @user.valid_password?(user_password)
-      sign_in @user, store: false
+      sign_in @user
       render json: @user, status: :ok
     else
       render json: { errors: 'Invalid email or password' }, status: :unprocessable_entity
