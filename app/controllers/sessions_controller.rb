@@ -31,16 +31,18 @@ class SessionsController < Devise::SessionsController
       sign_in @user
       render json: @user, status: :ok
     else
-      render json: { errors: 'Invalid email or password' }, status: :unprocessable_entity
+      render json: {
+        errors: I18n.t('devise.failure.invalid', authentication_keys: 'username')
+      }, status: :unprocessable_entity
     end
   end
 
   def find_user
-    user_email = params[:user][:email]
-    @user = user_email.present? && User.find_by(email: user_email)
+    user_username = params[:user][:username]
+    @user = user_username.present? && User.find_by(username: user_username)
   end
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:username, :password)
   end
 end

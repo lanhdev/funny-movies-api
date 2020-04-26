@@ -35,7 +35,7 @@ RSpec.describe "Sessions", type: :request do
         end
 
         it 'returns a new user' do
-          expect(json_response[:email]).to eq params[:user][:email]
+          expect(json_response[:username]).to eq params[:user][:username]
         end
       end
     end
@@ -47,7 +47,7 @@ RSpec.describe "Sessions", type: :request do
         let(:params) do
           {
             user: {
-              email: user.email,
+              username: user.username,
               password: user.password
             }
           }
@@ -75,7 +75,7 @@ RSpec.describe "Sessions", type: :request do
         let(:params) do
           {
             user: {
-              email: user.email,
+              username: user.username,
               password: 'wrong password'
             }
           }
@@ -90,7 +90,10 @@ RSpec.describe "Sessions", type: :request do
         end
 
         it 'returns errors' do
-          expect(json_response[:errors]).to eq 'Invalid email or password'
+          expect(json_response[:errors]).to eq I18n.t(
+            'devise.failure.invalid',
+            authentication_keys: 'username'
+          )
         end
       end
     end
