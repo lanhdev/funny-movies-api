@@ -12,10 +12,7 @@ RSpec.describe "Sessions", type: :request do
     context 'when user is new' do
       let(:params) do
         {
-          user: {
-            email: Faker::Internet.email,
-            password: '12345678'
-          }
+          user: attributes_for(:user)
         }
       end
 
@@ -38,8 +35,7 @@ RSpec.describe "Sessions", type: :request do
         end
 
         it 'returns a new user' do
-          user = JSON.parse(response.body)
-          expect(user).to include('id', 'email')
+          expect(json_response[:email]).to eq params[:user][:email]
         end
       end
     end
@@ -94,8 +90,7 @@ RSpec.describe "Sessions", type: :request do
         end
 
         it 'returns errors' do
-          json_response = JSON.parse(response.body)
-          expect(json_response['errors']).to eq 'Invalid email or password'
+          expect(json_response[:errors]).to eq 'Invalid email or password'
         end
       end
     end
