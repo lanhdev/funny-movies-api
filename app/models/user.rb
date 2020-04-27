@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, presence: true
 
-  has_many :movies
+  has_many :movies, dependent: :destroy
 
   def email_required?
     false
