@@ -10,7 +10,6 @@ class User < ApplicationRecord
          jwt_revocation_strategy: JwtBlacklist
 
   validates :username, uniqueness: true, presence: true
-  validates :email, uniqueness: true
 
   has_many :movies
 
