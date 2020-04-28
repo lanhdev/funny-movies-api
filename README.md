@@ -35,6 +35,6 @@
 
 * Run all specs: `rspec`
 * Run all features:
-  * Start the backend by running `rails server`
+  * Start the backend by running `rails server -p 3000`
   * Start the fronend by cloning frontend repository [funny-movies-app](https://github.com/lanhhoang/funny-movies-app) and running `npm run start`
-  * run `cucumber`
+  * Run `cucumber`
