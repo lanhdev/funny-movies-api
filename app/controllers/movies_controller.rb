@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
   before_action :authenticate_user!, only: %i(create)
 
   def index
-    render json: Movie.all, status: :ok
+    render json: Movie.all.order(created_at: :desc), status: :ok
   end
 
   def create
