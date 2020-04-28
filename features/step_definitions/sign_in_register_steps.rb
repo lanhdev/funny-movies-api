@@ -14,10 +14,6 @@ Given('There is a user with username {string} and password {string}') do |userna
   )
 end
 
-When('user is on the home page') do
-  visit 'http://localhost:3001/'
-end
-
 Then('user enters {string} and {string} to sign in form') do |username, password|
   within('#cucumber-user-section') do
     fill_in 'cucumber-username-form', with: username

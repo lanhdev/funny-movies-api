@@ -14,7 +14,9 @@ Then('user enters a YouTube url {string} to share form') do |url|
   end
 end
 
-Then('user is redirected to home page') do
-  expect(page).to have_current_path('/')
-  expect(page).to have_css('div#cucumber-movie-item')
+Then('user sees a warning message') do
+  expect(page).to have_css('div#cucumber-unauthorized-text')
+  within('#cucumber-unauthorized-text') do
+    expect(page).to have_text('401 UNAUTHORIZED')
+  end
 end
