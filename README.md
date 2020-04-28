@@ -23,13 +23,10 @@
       ```
 
 ### Database creation
-* Run `rails db:create db:schema:load` to create database and load the schema
-
-### Database initialization
-* Run `rails db:seed` to add example data
+* Run `rails db:setup` to set up database add example data
 
 ### Starting the application
-* Run `rails server` to start the application
+* Run `rails server -p 3000` to start the application
 
 ### How to run the test suite
 
