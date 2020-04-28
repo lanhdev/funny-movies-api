@@ -12,3 +12,11 @@ Feature: Share movie
     Then user enters a YouTube url 'https://www.youtube.com/watch?v=sfM7_JLk-84' to share form
     Then user clicks on 'Share' button
     Then user is redirected to home page
+
+  Scenario: Visitor accesss to share page and sees warning message
+    When user is on the home page
+    Then user goes to share movie page via link
+    Then user sees a warning message
+    Then user enters 'test' and 'Abcd1234' to sign in form
+    Then user signs in succesfully and should see user control section
+    Then user should see share a YouTube movie box
