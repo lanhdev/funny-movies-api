@@ -23,11 +23,16 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'devise-jwt', '~> 0.6.0'
 
 group :development, :test do
+  gem 'awesome_print', '~> 1.8'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.5'
   gem 'factory_bot_rails', '~> 5.1', '>= 5.1.1'
   gem 'faker', '~> 2.11'
+  gem 'pry', '~> 0.13.1'
+  gem 'pry-byebug', '~> 3.9'
+  gem 'pry-doc', '~> 1.1'
+  gem 'pry-rails', '~> 0.3.9'
 end
 
 group :development do
